@@ -43,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
         binding.buttonNine.setOnClickListener(view -> changeUserInput("9"));
 
-        binding.buttonSum.setOnClickListener(view -> changeUserInput("+"));
+        binding.buttonSum.setOnClickListener(view -> {
+            String input = userInput.getText().toString();
+            String lastInput = input.substring(input.length() - 1);
+            if (!lastInput.equals("+")) {
+                changeUserInput("+");
+            }
+        });
 
         binding.buttonDot.setOnClickListener(view -> changeUserInput("."));
 
