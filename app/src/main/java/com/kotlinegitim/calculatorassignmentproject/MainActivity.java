@@ -51,7 +51,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.buttonDot.setOnClickListener(view -> changeUserInput("."));
+        binding.buttonDot.setOnClickListener(view -> {
+            String input = userInput.getText().toString();
+            String lastInput = input.substring(input.length() - 1);
+            if (!lastInput.equals(".")) {
+                changeUserInput(".");
+            }
+        });
 
         binding.buttonClear.setOnClickListener(view -> userInput.setText(""));
 
